@@ -22,6 +22,13 @@ WooCommerce plugin that lets you run your own marketing and promotions, without 
 
 Open **Social & Vouchers** in the admin menu.
 
+### Reusing an existing Meta app or Google OAuth client
+
+If you already use a Meta app (e.g. from another plugin), you do not need a new one — just add this plugin's redirect URIs to the existing app/client and paste the same credentials into the Providers tab (they are stored in this site's options, never in code):
+
+- **Meta app** → Facebook Login (for Business) → Settings → *Valid OAuth Redirect URIs*: add the URI shown on the Providers tab, which is `https://<your-site>/wp-admin/admin.php?page=commerce-product-social-marketing&cpsm_oauth=facebook` (Instagram uses the same connection and URI). Also add your site domain under App Settings → Basic → *App Domains*. Requested scopes: `pages_show_list, pages_manage_posts, pages_read_engagement, instagram_basic, instagram_content_publish` (plus `business_management, ads_management` for ads, which need app review).
+- **Google Cloud** → Credentials → your OAuth client → *Authorized redirect URIs*: add `https://<your-site>/wp-admin/admin.php?page=commerce-product-social-marketing&cpsm_oauth=google`. Scope: `https://www.googleapis.com/auth/business.manage`.
+
 ### Facebook / Instagram
 
 1. Create an app at [developers.facebook.com](https://developers.facebook.com), add the **Facebook Login** product.
